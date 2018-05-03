@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TabletopSidekick</string>
+
+    <string name="nav_dice_roller">Dice Roller</string>
+    <string name="nav_random_number">Random Number Generator</string>
+    <string name="nav_turn_order">Turn Order Determinator</string>
+    <string name="nav_turn_timer">Turn Timer</string>
+    <string name="nav_calculator">Calculator</string>
 </resources>

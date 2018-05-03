@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dice_roller"
+            android:title="@string/nav_dice_roller" />
+        <item
+            android:id="@+id/nav_random_number"
+            android:title="@string/nav_random_number" />
+        <item
+            android:id="@+id/nav_turn_order"
+            android:title="@string/nav_turn_order" />
+        <item
+            android:id="@+id/nav_turn_timer"
+            android:title="@string/nav_turn_timer" />
+        <item
+            android:id="@+id/nav_calculator"
+            android:title="@string/nav_calculator" />
+    </group>
+
+</menu>
