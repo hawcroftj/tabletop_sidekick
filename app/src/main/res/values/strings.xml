@@ -6,4 +6,7 @@
     <string name="nav_turn_order">Turn Order Determinator</string>
     <string name="nav_turn_timer">Turn Timer</string>
     <string name="nav_calculator">Calculator</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
