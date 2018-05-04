@@ -3,6 +3,7 @@ package hawcroftj.github.com.tabletopsidekick;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +14,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
-        implements MainFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements
+        MainFragment.OnFragmentInteractionListener,
+        DiceRoller.OnFragmentInteractionListener,
+        RandomNumberGenerator.OnFragmentInteractionListener{
 
     private DrawerLayout mDrawerLayout;
 
@@ -27,16 +30,15 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // actionbar will house navigation drawer menu button
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        try {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        } catch (NullPointerException e) { /* TODO */ }
 
+        // load main (default) fragment into content frame
         MainFragment mainFragment = new MainFragment();
-        // load main fragment into content frame
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.content_frame, mainFragment);
-        transaction.commit();
+        commitFragmentTransaction(mainFragment);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         // prepare navigation view
@@ -44,6 +46,16 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_dice_roller:
+                        DiceRoller roller = new DiceRoller();
+                        commitFragmentTransaction(roller);
+                        break;
+                    case R.id.nav_random_number:
+                        RandomNumberGenerator generator = new RandomNumberGenerator();
+                        commitFragmentTransaction(generator);
+                        break;
+                }
                 // set item as 'checked'
                 item.setChecked(true);
                 mDrawerLayout.closeDrawers();
@@ -65,5 +77,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
         // TODO
+    }
+
+    /**
+     * Commits a FragmentTransaction to force a new Fragment into the content frame.
+     * @param fragment The fragment to be loaded into the content frame.
+     */
+    private void commitFragmentTransaction(Fragment fragment) {
+        // load provided fragment into content frame
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.content_frame, fragment);
+        transaction.commit();
     }
 }
