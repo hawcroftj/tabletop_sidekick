@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+/**
+ * @author Jadon H
+ */
 public class MainActivity extends AppCompatActivity implements
         MainFragment.OnFragmentInteractionListener,
         DiceRoller.OnFragmentInteractionListener,
@@ -47,11 +50,11 @@ public class MainActivity extends AppCompatActivity implements
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.nav_dice_roller:
+                    case R.id.nav_dice_roller: // load DiceRoller fragment into content frame
                         DiceRoller roller = new DiceRoller();
                         commitFragmentTransaction(roller);
                         break;
-                    case R.id.nav_random_number:
+                    case R.id.nav_random_number: // load RandomNumberGenerator fragment into content frame
                         RandomNumberGenerator generator = new RandomNumberGenerator();
                         commitFragmentTransaction(generator);
                         break;
