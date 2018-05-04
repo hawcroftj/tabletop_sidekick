@@ -10,12 +10,7 @@ import android.view.ViewGroup;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RandomNumberGenerator.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RandomNumberGenerator#newInstance} factory method to
- * create an instance of this fragment.
+ * @author Jadon H
  */
 public class RandomNumberGenerator extends Fragment {
     // TODO: Rename parameter arguments, choose names that match

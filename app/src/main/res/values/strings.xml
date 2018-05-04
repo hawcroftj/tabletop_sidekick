@@ -6,4 +6,9 @@
     <string name="nav_turn_order">Turn Order Determinator</string>
     <string name="nav_turn_timer">Turn Timer</string>
     <string name="nav_calculator">Calculator</string>
+
+    <!-- Dice Roller -->
+    <string name="edit_dice">Edit Dice</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_OK">OK</string>
 </resources>

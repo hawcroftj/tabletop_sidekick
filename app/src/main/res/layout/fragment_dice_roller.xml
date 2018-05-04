@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     tools:context="hawcroftj.github.com.tabletopsidekick.DiceRoller">
 
-    <TextView
+    <Button
+        android:id="@+id/btnEditDice"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/nav_dice_roller" />
+        android:layout_height="wrap_content"
+        android:text="@string/edit_dice"/>
 
 </FrameLayout>
