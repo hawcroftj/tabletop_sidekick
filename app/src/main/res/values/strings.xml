@@ -9,6 +9,19 @@
 
     <!-- Dice Roller -->
     <string name="edit_dice">Edit Dice</string>
+    <string name="roll_dice">Roll Dice</string>
+    <string name="num_dice">Number of Dice</string>
+    <string name="type_dice">Type of Dice</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_OK">OK</string>
+
+    <string-array name="all_dice">
+        <item>d4</item>
+        <item>d6</item>
+        <item>d8</item>
+        <item>d10</item>
+        <item>d12</item>
+        <item>d20</item>
+        <item>d100</item>
+    </string-array>
 </resources>

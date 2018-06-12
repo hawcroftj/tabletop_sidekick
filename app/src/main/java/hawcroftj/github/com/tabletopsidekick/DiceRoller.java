@@ -1,16 +1,16 @@
 package hawcroftj.github.com.tabletopsidekick;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.ArrayAdapter;
+import android.widget.NumberPicker;
+import android.widget.Spinner;
 
 /**
  * @author Jadon H
@@ -18,23 +18,14 @@ import android.view.ViewGroup;
 public class DiceRoller extends Fragment {
     private OnFragmentInteractionListener mListener;
 
+    private Spinner spTypeDice;
+
     // required empty public constructor
     public DiceRoller() {  }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        editDiceDialog();
-    }
-
-    /**
-     *
-     */
-    private void editDiceDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-        dialog.setView(R.layout.dialog_dice_roller);
-        dialog.show();
     }
 
     @Override
@@ -42,6 +33,17 @@ public class DiceRoller extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dice_roller, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        // populate the dice type spinner
+        spTypeDice = getView().findViewById(R.id.spTypeDice);
+        ArrayAdapter<CharSequence> diceAdapter = ArrayAdapter.createFromResource(
+                getContext(), R.array.all_dice, android.R.layout.simple_spinner_item);
+        diceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spTypeDice.setAdapter(diceAdapter);
     }
 
     @Override
